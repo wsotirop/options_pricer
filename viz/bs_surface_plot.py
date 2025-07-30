@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from models.black_scholes import black_scholes_price
+import os
 
 def plot_bs_surface(S=100, r=0.05, sigma=0.25, option_type="call"):
     """
@@ -21,6 +22,9 @@ def plot_bs_surface(S=100, r=0.05, sigma=0.25, option_type="call"):
     ax.set_ylabel("Time to Maturity (T)")
     ax.set_zlabel("Option Price")
     plt.tight_layout()
+    script_dir = os.path.dirname(__file__)
+    out_path = os.path.join(script_dir, "bs_surface.png")
+    plt.savefig(out_path, dpi=150)
     plt.show()
 
 if __name__ == "__main__":
