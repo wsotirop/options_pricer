@@ -1,12 +1,13 @@
 # Options Pricer
 
-A Python project to fetch live options data, compute theoretical prices using Black-Scholes and Binomial Tree models, and compare them to market quotes. Includes volatility estimation and visualization of pricing surfaces.
+A Python project to fetch live options data, compute theoretical prices using Black-Scholes and Binomial Tree models, and compare them to market quotes. Includes volatility estimation, implied volatility solving, and visualization of pricing surfaces.
 
 ## Features
 
 * **Black-Scholes Model** for European options
 * **Binomial Tree Model** for American options (supports early exercise)
 * **Historical Volatility** estimation from recent price data
+* **Implied Volatility** solver using Brent’s method
 * **Live Data** fetch via Yahoo Finance (`yfinance`)
 * **3D Visualization** of Black-Scholes pricing surface
 
@@ -20,6 +21,7 @@ options_pricer/
 │   └── binomial_tree.py
 ├── utils/                     # Data fetchers and helpers
 │   ├── fetch_data.py
+│   ├── implied_vol.py         # Implied volatility solver
 │   └── __init__.py
 ├── viz/                       # Visualization scripts and assets
 │   ├── bs_surface_plot.py
@@ -69,9 +71,10 @@ python -m viz.bs_surface_plot
 
 ```bash
 AAPL — CALL OPTIONS — Expiry: 2025-08-01
-  Strike |   Market |      B-S |  BinTree
-----------------------------------------
-  110.00 |   102.07 |    98.55 |    98.55
+  Strike |   Market |      B-S |  BinTree |  ImplVol
+-------------------------------------------------------
+  110.00 |   102.07 |    98.55 |    98.55 |   4.0863
+  120.00 |    92.70 |    88.55 |    88.55 |   3.8188
   ...
 ```
 
@@ -79,4 +82,5 @@ AAPL — CALL OPTIONS — Expiry: 2025-08-01
 
 **Figure 1:** Black-Scholes call pricing surface for AAPL
 Parameters: \$S=209.35\$, \$r=5%\$, \$\sigma\approx27%\$
+
 
