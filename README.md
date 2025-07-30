@@ -1,14 +1,14 @@
 # Options Pricer
 
-A Python project to fetch live options data, compute theoretical prices using Black‑Scholes and Binomial Tree models, and compare them to market quotes. Includes volatility estimation and visualization of pricing surfaces.
+A Python project to fetch live options data, compute theoretical prices using Black-Scholes and Binomial Tree models, and compare them to market quotes. Includes volatility estimation and visualization of pricing surfaces.
 
 ## Features
 
-* **Black‑Scholes Model** for European options
+* **Black-Scholes Model** for European options
 * **Binomial Tree Model** for American options (supports early exercise)
 * **Historical Volatility** estimation from recent price data
 * **Live Data** fetch via Yahoo Finance (`yfinance`)
-* **3D Visualization** of Black‑Scholes pricing surface
+* **3D Visualization** of Black-Scholes pricing surface
 
 ## Project Structure
 
@@ -21,8 +21,9 @@ options_pricer/
 ├── utils/                     # Data fetchers and helpers
 │   ├── fetch_data.py
 │   └── __init__.py
-├── viz/                       # Visualization scripts
+├── viz/                       # Visualization scripts and assets
 │   ├── bs_surface_plot.py
+│   ├── bs_surface.png         # Generated pricing surface image
 │   └── __init__.py
 ├── main.py                    # Entry point for pricing comparison
 ├── README.md                  # This file
@@ -58,7 +59,7 @@ options_pricer/
 python main.py --ticker AAPL --option_type call --num_options 10
 ```
 
-### Visualize Black‑Scholes Surface
+### Visualize Black-Scholes Surface
 
 ```bash
 python -m viz.bs_surface_plot
@@ -66,7 +67,7 @@ python -m viz.bs_surface_plot
 
 ## Sample Output
 
-```
+```bash
 AAPL — CALL OPTIONS — Expiry: 2025-08-01
   Strike |   Market |      B-S |  BinTree
 ----------------------------------------
@@ -74,10 +75,8 @@ AAPL — CALL OPTIONS — Expiry: 2025-08-01
   ...
 ```
 
-![alt text](image.png)
+![Black-Scholes Surface](viz/bs_surface.png)
 
-## Next Steps
+**Figure 1:** Black-Scholes call pricing surface for AAPL
+Parameters: \$S=209.35\$, \$r=5%\$, \$\sigma\approx27%\$
 
-* Add implied volatility solver
-* Export results to CSV or Excel
-* Extend to Greeks calculation
