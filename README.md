@@ -57,9 +57,11 @@ options_pricer/
 
 ### Run the pricer
 
+````bash
+python main.py
 ```bash
 python main.py --ticker AAPL --option_type call --num_options 10
-```
+````
 
 ### Visualize Black-Scholes Surface
 
@@ -70,7 +72,7 @@ python -m viz.bs_surface_plot
 ## Sample Output
 
 ```bash
-AAPL — CALL OPTIONS — Expiry: 2025-08-01
+AAPL — CALL OPTIONS — Expiry: 2025-08-08
   Strike |   Market |      B-S |  BinTree |  ImplVol
 -------------------------------------------------------
   110.00 |   102.07 |    98.55 |    98.55 |   4.0863
@@ -83,4 +85,8 @@ AAPL — CALL OPTIONS — Expiry: 2025-08-01
 **Figure 1:** Black-Scholes call pricing surface for AAPL
 Parameters: \$S=209.35\$, \$r=5%\$, \$\sigma\approx27%\$
 
+## Next Steps
 
+* Export results to CSV or Excel
+* Extend to Greeks calculation
+* Add volatility surface interpolation
